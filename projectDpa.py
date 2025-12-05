@@ -1,6 +1,7 @@
 # Program To-Do List Sederhana
 # Dibuat oleh: 1. Ricky Darmawan : 2517052015
-             # 2.Chelsea Alifah Islamy Munawar : 2517052011
+             # 2. Chelsea Alifah Islamy Munawar : 2517052011
+             # 3. putria alya maharani : 2517052014
 
 
 # List untuk menyimpan semua task (collection)
@@ -80,8 +81,75 @@ def cari_task():
             print(f"{i+1}. {task['judul']} - {task['deskripsi']}")
         print()
 
+# Fungsi: Hapus Task
+def hapus_task():
+    tampilkan_task()
+
+    if len(todos) == 0:
+        return
+
+    try:
+        indeks = int(input("Pilih nomor task yang ingin dihapus: ")) - 1
+
+        if indeks < 0 or indeks >= len(todos):
+            print("Nomor task tidak valid!\n")
+            return
+
+        del todos[indeks]
+        print("Task berhasil dihapus!\n")
+
+    except ValueError:
+        print("Input harus berupa angka!\n")
+
+# Fungsi: Cari / Filter Task
+def cari_task():
+    keyword = input("\nMasukkan kata kunci pencarian: ").lower()
+
+    hasil = []
+    for task in todos:
+        if keyword in task["judul"].lower() or keyword in task["deskripsi"].lower():
+            hasil.append(task)
+
+    if len(hasil) == 0:
+        print("Tidak ada task yang cocok.\n")
+    else:
+        print("\n=== Hasil Pencarian ===")
+        for i, task in enumerate(hasil):
+            print(f"{i+1}. {task['judul']} - {task['deskripsi']}")
+        print()
+
+# Menu Utama Program
+def menu():
+    while True:
+        print("=== PROGRAM TO-DO LIST ===")
+        print("1. Tambah Task")
+        print("2. Tampilkan Task")
+        print("3. Edit Task")
+        print("4. Hapus Task")
+        print("5. Cari / Filter Task")
+        print("6. Keluar")
+
+        pilihan = input("Pilih menu (1-6): ")
+
+        if pilihan == "1":
+            tambah_task()
+        elif pilihan == "2":
+            tampilkan_task()
+        elif pilihan == "3":
+            edit_task()
+        elif pilihan == "4":
+            hapus_task()
+        elif pilihan == "5":
+            cari_task()
+        elif pilihan == "6":
+            print("Terima kasih! Program selesai.")
+            break
+        else:
+            print("Pilihan tidak valid. Coba lagi.\n")
 
 
 
+# Program Dimulai
+menu()
 
 
