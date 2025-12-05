@@ -1,5 +1,6 @@
 # Program To-Do List Sederhana
 # Dibuat oleh: 1. Ricky Darmawan : 2517052015
+                2.Chelsea Alifah Islamy Munawar : 2517052011
 
 
 # List untuk menyimpan semua task (collection)
@@ -60,5 +61,6 @@ def edit_task():
 
     except ValueError:
         print("Input harus berupa angka!\n")
+
 
 
