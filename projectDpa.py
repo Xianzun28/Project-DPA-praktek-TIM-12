@@ -63,5 +63,25 @@ def edit_task():
         print("Input harus berupa angka!\n")
 
 
+# Fungsi: Cari / Filter Task
+def cari_task():
+    keyword = input("\nMasukkan kata kunci pencarian: ").lower()
+
+    hasil = []
+    for task in todos:
+        if keyword in task["judul"].lower() or keyword in task["deskripsi"].lower():
+            hasil.append(task)
+
+    if len(hasil) == 0:
+        print("Tidak ada task yang cocok.\n")
+    else:
+        print("\n=== Hasil Pencarian ===")
+        for i, task in enumerate(hasil):
+            print(f"{i+1}. {task['judul']} - {task['deskripsi']}")
+        print()
+
+
+
+
 
 
