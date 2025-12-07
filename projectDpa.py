@@ -81,13 +81,13 @@ def cari_task():
             print(f"{i+1}. {task['judul']} - {task['deskripsi']}")
         print()
 
+
 # Fungsi: Hapus Task
 def hapus_task():
     tampilkan_task()
 
     if len(todos) == 0:
         return
-
     try:
         indeks = int(input("Pilih nomor task yang ingin dihapus: ")) - 1
 
@@ -101,22 +101,6 @@ def hapus_task():
     except ValueError:
         print("Input harus berupa angka!\n")
 
-# Fungsi: Cari / Filter Task
-def cari_task():
-    keyword = input("\nMasukkan kata kunci pencarian: ").lower()
-
-    hasil = []
-    for task in todos:
-        if keyword in task["judul"].lower() or keyword in task["deskripsi"].lower():
-            hasil.append(task)
-
-    if len(hasil) == 0:
-        print("Tidak ada task yang cocok.\n")
-    else:
-        print("\n=== Hasil Pencarian ===")
-        for i, task in enumerate(hasil):
-            print(f"{i+1}. {task['judul']} - {task['deskripsi']}")
-        print()
 
 # Menu Utama Program
 def menu():
@@ -151,5 +135,6 @@ def menu():
 
 # Program Dimulai
 menu()
+
 
 
